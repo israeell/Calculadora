@@ -1,5 +1,6 @@
 import os
 import time
+import math
 
 #cabeçalho
 def cabecalho():
@@ -14,9 +15,8 @@ def cabecalho():
 def selecao():
     global sel
     cabecalho()
-    print("Selecione uma opção\n[1]Soma\n[2]Subtração\n[3]Multiplicação\n[4]Divisão\n[0]Sair")
+    print("Selecione uma opção\n[1]Soma\n[2]Subtração\n[3]Multiplicação\n[4]Divisão\n[5]Raiz Quadrada\n[6]Expoente\n[7]Raiz Cúbica\n[8]Seno\n[9]Cosseno\n[10]Tangente\n[0]Sair")
     sel = int(input())
-
 
 def opcoes(sel):
     print("\n" * os.get_terminal_size().lines)
@@ -28,7 +28,8 @@ def opcoes(sel):
         cabecalho()
         print("Obrigado por usar a calculadora!")
         time.sleep(2)
-        
+    
+    
     # soma
     elif sel == 1:
         n = input().split()
@@ -79,7 +80,53 @@ def opcoes(sel):
         print(f'Sua divisão deu: {div}')
         time.sleep(2)
         print("\n" * os.get_terminal_size().lines)
+    
+    # Raíz Quadrada
+    elif sel == 5:
+        n = float(input())
+        print('A raiz quadrada de {} é: {:.2f}'.format(n, n**0.5))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
 
+    # Expoente
+    elif sel == 6:
+        n = input().split()
+        for i in n:
+            i = float(i)
+            nums.append(i)
+        resul = nums[0] ** nums[1]
+        print('O número {} elevado à {} é: {}'.format(nums[0], nums[1], resul))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
+    
+    # Raíz cúbica
+    elif sel == 7:
+        n = float(input())
+        print('A raíz cúbica de {} é: {:.2f}'.format(n, n**(1/3)))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
+    
+    # Seno
+    elif sel == 8:
+        n = float(input())
+        print('O seno de {} é: {:.2f}'.format(n, math.sin(n)))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
+
+    # Cosseno
+    elif sel == 9:
+        n = float(input())
+        print('O cosseno de {} é: {:.2f}'.format(n, math.cos(n)))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
+    
+    # Tangente
+    elif sel == 10:
+        n = float(input())
+        print('A tangente de {} é {:.2f}'.format(n, math.tan(n)))
+        time.sleep(2)
+        print("\n" * os.get_terminal_size().lines)
+    
 print("\n" * os.get_terminal_size().lines)
 selecao()
 opcoes(sel)
